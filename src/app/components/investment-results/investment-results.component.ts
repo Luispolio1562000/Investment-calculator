@@ -1,6 +1,7 @@
-import { Component, Input, input } from '@angular/core';
+import { Component, Input, computed, inject, input } from '@angular/core';
 import { ResultInvestmentModel } from '../../investment.model';
 import { CurrencyPipe } from '@angular/common';
+import { InvestmentService } from '../../investment.service';
 
 @Component({
   selector: 'app-investment-results',
@@ -10,14 +11,11 @@ import { CurrencyPipe } from '@angular/common';
   styleUrl: './investment-results.component.css',
 })
 export class InvestmentResultsComponent {
-  dataInvestment = input<
-    {
-      year: number;
-      interest: number;
-      valueEndOfYear: number;
-      annualInvestment: number;
-      totalInterest: number;
-      totalAmountInvested: number;
-    }[]
-  >();
+  private investementService = inject(InvestmentService)
+
+  
+  results = computed(()=> this.investementService.redultData())
+// Nos proporciona el mismo resultado de solo lectura de el signal. 
+  //results = this.investementService.redultData.asReadonly();
+
 }
