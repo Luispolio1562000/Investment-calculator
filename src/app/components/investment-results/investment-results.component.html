@@ -1,12 +1,29 @@
-<p>Ingrese los valores solicitados para calcular la inversión</p>
+@if (!dataInvestment()) {
+<p class="center">Ingrese los valores solicitados para calcular la inversión</p>
+
+}@else {
 <table>
   <thead>
     <tr>
-      <th>A</th>
+      <th>Año</th>
       <th>Valor de la inversión</th>
       <th>Interes anual</th>
       <th>Intereses totales</th>
       <th>Capital invertido</th>
     </tr>
   </thead>
+  <tbody>
+    @for (data of dataInvestment(); track data.year) {
+    <tr>
+      <td>{{ data.year }}</td> 
+      <td>{{data.valueEndOfYear | currency }}</td>
+      <td>{{data.interest | currency}}</td>
+      <td>{{data.totalInterest | currency}}</td>
+      <td>{{data.totalAmountInvested | currency}}</td>
+    </tr>
+
+    }
+  </tbody>
 </table>
+
+}

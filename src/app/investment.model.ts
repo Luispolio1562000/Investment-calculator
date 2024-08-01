@@ -4,3 +4,12 @@ export interface InvestmentModel {
   expectedReturn: number;
   annualInvestment: number;
 }
+
+export interface ResultInvestmentModel {
+  year: number;
+  interest: number;
+  valueEndOfYear: number;
+  annualInvestment: number;
+  totalInterest: number;
+  totalAmountInvested: number;
+}
