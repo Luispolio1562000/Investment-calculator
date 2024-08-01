@@ -28,11 +28,11 @@ export class UserInputComponent {
       expectedReturn: Number(this.enteredExpectedReturn()),
     });
     
-    
+    /* 
     this.enteredInitialInvest.set('');
     this.enteredAnnualInvest.set('');
     this.enteredExpectedReturn.set('');
-    this.enteredDuration.set('')
+    this.enteredDuration.set('') */
   
   }
 }
